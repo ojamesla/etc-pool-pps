@@ -5,18 +5,18 @@ export default Ember.Route.extend({
   intl: Ember.inject.service(),
 
   beforeModel() {
-    this.get('intl').setLocale('ru-ru');
+    this.get('intl').setLocale('en-us');
   },
 
-model: function() {
+	model: function() {
     var url = config.APP.ApiUrl + 'api/stats';
-    return Ember.$.getJSON(url).then(function(data) {
+    return Ember.$.getJSON(url).then(function(data) {      
       if (data.nodes.length) {
-          Ember.$.cookie('difficulty', data.nodes[0].difficulty);
+        Ember.$.cookie('difficulty', data.nodes[0].difficulty);
       }
       return Ember.Object.create(data);
     });
-},
+	},
 
   setupController: function(controller, model) {
     this._super(controller, model);

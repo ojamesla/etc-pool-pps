@@ -11,6 +11,6 @@ export default Ember.Controller.extend({
         return this.get('model.hashrate') * 86400 * 2955000000 / diff;
       }
       return 0;
-     }
-   })
+    }
+  })
 });

@@ -7,18 +7,20 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('account', { path: '/account/:login' }, function() {
-    this.route('shifts');
-    this.route('today');
     this.route('payouts');
   });
   this.route('not-found');
 
-  this.route('blocks');
+  this.route('blocks', function() {
+    this.route('immature');
+    this.route('pending');
+  });
 
   this.route('help');
   this.route('payments');
   this.route('miners');
   this.route('about');
+  this.route('chart');
 });
 
 export default Router;

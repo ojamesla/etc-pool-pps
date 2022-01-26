@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   stats: Ember.computed.reads('applicationController'),
   config: Ember.computed.reads('applicationController.config'),
 
-  cachedLogin: Ember.computed('login', {
+	cachedLogin: Ember.computed('login', {
     get() {
       return this.get('login') || Ember.$.cookie('login');
     },
@@ -24,5 +24,5 @@ export default Ember.Controller.extend({
       this.set('model.myHashRate', value);
       return value;
     }
-  })
+    })
 });
